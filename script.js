@@ -984,6 +984,82 @@ const menuData = {
 };
  
    
+// function toggleSubMenu(menuItem) {
+//     const submenu = menuItem.querySelector('.submenu');
+//     const menuContainer = document.getElementById('menuContainer');
+
+//     menuItem.classList.toggle('active');
+
+//     // Prikupi sve aktivne podmenije
+//     const activeSubmenus = document.querySelectorAll('.menu-item.active .submenu');
+
+//     // Postavi visinu podmenija na osnovu najviše visine među aktivnim podmenijima
+//     const maxHeight = Math.max(...Array.from(activeSubmenus).map(sub => sub.scrollHeight));
+//     activeSubmenus.forEach(sub => {
+//         sub.style.maxHeight = `${maxHeight}px`;
+//     });
+
+//     // Dodaj logiku za smanjenje ukupne visine ako se zatvori podmeni
+//     if (!menuItem.classList.contains('active')) {
+//         submenu.style.maxHeight = '0';
+//         menuContainer.style.paddingBottom = '0';
+//     }
+
+//     // Pristupi tekstu koristeći querySelector umesto direktno preko textContent
+//     const categoryName = menuItem.querySelector('h2 span').textContent.trim();
+//     const category = menuData.categories.find(cat => cat.name === categoryName);
+
+//     if (category) {
+//         generateSubMenu(category, submenu);
+//     }
+// }
+
+// function generateSubMenu(category, submenuContainer) {
+//     submenuContainer.innerHTML = ''; // Očisti prethodni sadržaj
+
+//     category.items.forEach(item => {
+//         const menuItemDetail = document.createElement('div');
+//         menuItemDetail.classList.add('menu-item-detail');
+
+//         const image = document.createElement('img');
+//         image.src = item.image;
+//         image.alt = 'Product Image';
+
+//         const itemInfo = document.createElement('div');
+//         itemInfo.classList.add('menu-item-info');
+
+//         const itemName = document.createElement('p');
+//         itemName.classList.add('item');
+//         itemName.textContent = item.name;
+
+//         const itemPrice = document.createElement('p');
+//         itemPrice.classList.add('item-price');
+//         itemPrice.textContent = item.price;
+
+//         itemInfo.appendChild(itemName);
+//         itemInfo.appendChild(itemPrice);
+
+//         menuItemDetail.appendChild(image);
+//         menuItemDetail.appendChild(itemInfo);
+
+//         submenuContainer.appendChild(menuItemDetail);
+//     });
+
+//     // Prikazivanje podmenija
+//     submenuContainer.style.maxHeight = submenuContainer.scrollHeight + 'px';
+// }
+
+// // Učitavanje svih slika prilikom učitavanja stranice
+// document.addEventListener('DOMContentLoaded', () => {
+//     const allCategories = menuData.categories;
+//     allCategories.forEach(category => {
+//         const submenuContainer = document.querySelector(`[data-category="${category.name}"] .submenu`);
+//         if (submenuContainer) {
+//             generateSubMenu(category, submenuContainer);
+//         }
+//     });
+// }); 
+
 function toggleSubMenu(menuItem) {
     const submenu = menuItem.querySelector('.submenu');
     const menuContainer = document.getElementById('menuContainer');
@@ -1049,16 +1125,16 @@ function generateSubMenu(category, submenuContainer) {
     submenuContainer.style.maxHeight = submenuContainer.scrollHeight + 'px';
 }
 
-// Učitavanje svih slika prilikom učitavanja stranice
+// Učitavanje svih podmenija prilikom učitavanja stranice
 document.addEventListener('DOMContentLoaded', () => {
     const allCategories = menuData.categories;
+    const submenuContainer = document.querySelector('.submenu');
+
     allCategories.forEach(category => {
-        const submenuContainer = document.querySelector(`[data-category="${category.name}"] .submenu`);
-        if (submenuContainer) {
-            generateSubMenu(category, submenuContainer);
-        }
+        generateSubMenu(category, submenuContainer);
     });
-}); 
+});
+
 
  function copyWifiKey() {
     var wifiKeyElement = document.getElementById('wifiKey');
