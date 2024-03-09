@@ -475,6 +475,62 @@ const menuData = {
         // Add more items for snacks as needed
         ]
         },
+        {
+            "name": "Topli Napici",
+            "items": [
+                {
+                    "name": "Espresso kafa",
+                    "image": "images/kafa.png",
+                    "price": "140 RSD"
+                },
+                {
+                    "name": "Espresso kafa sa šlagom",
+                    "image": "images/kafaslag.png",
+                    "price": "170 RSD"
+                },
+                {
+                 "name": "Cappucino",
+                 "image": "images/cappucino.png",
+                 "price": "160 RSD"
+             },
+             {
+                 "name": "Domaća kafa",
+                 "image": "images/domacakafa.png",
+                 "price": "100 RSD"
+             },
+             {
+                 "name": "Topla čokolada",
+                 "image": "images/toplacokolada.png",
+                 "price": "170 RSD"
+             },
+             {
+                 "name": "Topla čokolada sa šlagom",
+                 "image": "images/toplacokoladaslag.png",
+                 "price": "200 RSD"
+             },
+             {
+                 "name": "Čaj fructus",
+                 "image": "images/caj.png",
+                 "price": "140 RSD"
+             },
+             {
+                 "name": "Šlag",
+                 "image": "images/slag.png",
+                 "price": "30 RSD"
+             },
+             {
+                 "name": "Mleko",
+                 "image": "images/mleko.png",
+                 "price": "60 RSD"
+             },
+             {
+               "name": "Plazma shake ",
+               "image": "images/plazma1.png",
+               "price": "290 RSD"
+           },
+                // Dodajte ostale stavke za alkoholne napitke po potrebi
+            ]
+        },
      {
         "name": "Hot Drinks",
         "items": [
