@@ -950,90 +950,90 @@ const menuData = {
  
  
  
- function generateSubMenu(category, submenuContainer) {
-    submenuContainer.innerHTML = ''; // Očisti prethodni sadržaj
-
-    Promise.all(category.items.map(loadImage))
-        .then(images => {
-            images.forEach((image, index) => {
-                const item = category.items[index];
-
-                const menuItemDetail = document.createElement('div');
-                menuItemDetail.classList.add('menu-item-detail');
-
-                const itemInfo = document.createElement('div');
-                itemInfo.classList.add('menu-item-info');
-
-                const itemName = document.createElement('p');
-                itemName.classList.add('item');
-                itemName.textContent = item.name;
-
-                const itemPrice = document.createElement('p');
-                itemPrice.classList.add('item-price');
-                itemPrice.textContent = item.price;
-
-                itemInfo.appendChild(itemName);
-                itemInfo.appendChild(itemPrice);
-
-                menuItemDetail.appendChild(image);
-                menuItemDetail.appendChild(itemInfo);
-
-                submenuContainer.appendChild(menuItemDetail);
-            });
-
-            // Prikazivanje podmenija
-            submenuContainer.style.maxHeight = submenuContainer.scrollHeight + 'px';
-        })
-        .catch(error => {
-            console.error('Failed to load images:', error);
-        });
-}
-
-function loadImage(item) {
-    return new Promise((resolve, reject) => {
-        const image = new Image();
-        image.onload = () => resolve(image);
-        image.onerror = () => reject(new Error(`Failed to load image: ${item.image}`));
-        image.src = item.image;
-        image.alt = 'Product Image';
-    });
-}
-
-
-// function generateSubMenu(category, submenuContainer) {
+//  function generateSubMenu(category, submenuContainer) {
 //     submenuContainer.innerHTML = ''; // Očisti prethodni sadržaj
 
-//     category.items.forEach(item => {
-//         const menuItemDetail = document.createElement('div');
-//         menuItemDetail.classList.add('menu-item-detail');
+//     Promise.all(category.items.map(loadImage))
+//         .then(images => {
+//             images.forEach((image, index) => {
+//                 const item = category.items[index];
 
-//         const image = document.createElement('img');
+//                 const menuItemDetail = document.createElement('div');
+//                 menuItemDetail.classList.add('menu-item-detail');
+
+//                 const itemInfo = document.createElement('div');
+//                 itemInfo.classList.add('menu-item-info');
+
+//                 const itemName = document.createElement('p');
+//                 itemName.classList.add('item');
+//                 itemName.textContent = item.name;
+
+//                 const itemPrice = document.createElement('p');
+//                 itemPrice.classList.add('item-price');
+//                 itemPrice.textContent = item.price;
+
+//                 itemInfo.appendChild(itemName);
+//                 itemInfo.appendChild(itemPrice);
+
+//                 menuItemDetail.appendChild(image);
+//                 menuItemDetail.appendChild(itemInfo);
+
+//                 submenuContainer.appendChild(menuItemDetail);
+//             });
+
+//             // Prikazivanje podmenija
+//             submenuContainer.style.maxHeight = submenuContainer.scrollHeight + 'px';
+//         })
+//         .catch(error => {
+//             console.error('Failed to load images:', error);
+//         });
+// }
+
+// function loadImage(item) {
+//     return new Promise((resolve, reject) => {
+//         const image = new Image();
+//         image.onload = () => resolve(image);
+//         image.onerror = () => reject(new Error(`Failed to load image: ${item.image}`));
 //         image.src = item.image;
 //         image.alt = 'Product Image';
-
-//         const itemInfo = document.createElement('div');
-//         itemInfo.classList.add('menu-item-info');
-
-//         const itemName = document.createElement('p');
-//         itemName.classList.add('item');
-//         itemName.textContent = item.name;
-
-//         const itemPrice = document.createElement('p');
-//         itemPrice.classList.add('item-price');
-//         itemPrice.textContent = item.price;
-
-//         itemInfo.appendChild(itemName);
-//         itemInfo.appendChild(itemPrice);
-
-//         menuItemDetail.appendChild(image);
-//         menuItemDetail.appendChild(itemInfo);
-
-//         submenuContainer.appendChild(menuItemDetail);
 //     });
-
-//     // Prikazivanje podmenija
-//     submenuContainer.style.maxHeight = submenuContainer.scrollHeight + 'px';
 // }
+
+
+function generateSubMenu(category, submenuContainer) {
+    submenuContainer.innerHTML = ''; // Očisti prethodni sadržaj
+
+    category.items.forEach(item => {
+        const menuItemDetail = document.createElement('div');
+        menuItemDetail.classList.add('menu-item-detail');
+
+        const image = document.createElement('img');
+        image.src = item.image;
+        image.alt = 'Product Image';
+
+        const itemInfo = document.createElement('div');
+        itemInfo.classList.add('menu-item-info');
+
+        const itemName = document.createElement('p');
+        itemName.classList.add('item');
+        itemName.textContent = item.name;
+
+        const itemPrice = document.createElement('p');
+        itemPrice.classList.add('item-price');
+        itemPrice.textContent = item.price;
+
+        itemInfo.appendChild(itemName);
+        itemInfo.appendChild(itemPrice);
+
+        menuItemDetail.appendChild(image);
+        menuItemDetail.appendChild(itemInfo);
+
+        submenuContainer.appendChild(menuItemDetail);
+    });
+
+    // Prikazivanje podmenija
+    submenuContainer.style.maxHeight = submenuContainer.scrollHeight + 'px';
+}
  
 
  function copyWifiKey() {
