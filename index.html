@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-... (hash vrednost)" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Dodajte ovo u head sekciju -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo1.png" type="image/png">
+    <title>Kafe Meni</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-6">
+                <div class="menu-container" id="menuContainer">
+                    <div class="wifi-container">
+                        <!-- Leva strana -->
+                        <div class="wifi-info">
+                            <p><span class="bold"><i class="fas fa-wifi"></i></span> <span id="wifiSSID">Kulturica 5G</span></p>
+                            <p><span class="bold"><i class="fas fa-lock"></i></span> <span id="wifiKey" onclick="copyWifiKey()">kulturica2022</span></p>
+                            
+                        </div>
+                    
+                        <!-- Desna strana -->
+                        <div class="wifi-lang">
+                            <img src="images/sr.png" alt="Logo Image" style="width: 35px;" onclick="changeLanguage('sr','promeni')">
+                            <img src="images/en.png" alt="Logo Image" style="width: 35px;" onclick="changeLanguage('en','promeni')">
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="logo">
+                        <div>
+                            <img src="images/logo1.png" alt="Logo Image">
+                            <span id="digmeni">Digitalni meni</span>
+                            <hr>
+                        </div>
+                       
+                    </div>
+                    
+                    <hr>
+                    
+                    
+                    <!-- Baner -->
+                    <!-- <div class="baner">
+                        <span class="action-text">Akcija</span>
+                        <span class="center-text">
+                            Espresso kafa <span class="green-text">+ Cedevita</span>
+                        </span>
+                        <span class="price-text">250 RSD</span>
+                    </div> -->
+                    <!-- <br> -->
+                    <!-- Kategorija 1 -->
+                    <div class="menu-item shadow-sm" onclick="toggleSubMenu(this)">
+                        <h2 style="margin-bottom: 2px;">
+                            <span class="d-flex">
+                                <i class="fas fa-glass-martini-alt" style="width: 35px;"></i> 
+                                <!-- Ikona za aperitiv i likere -->                                
+                                <span class="w-75" id="aperitiviText">Aperitivi i likeri</span>
+                                <i class="fas fa-angle-down ml-4 mt-1 arrow-icon"></i>
+                            </span>
+                        </h2>
+                        <div class="submenu">
+                            <!-- Podaci će se dinamički generisati ovde pomoću JavaScript-a -->
+                        </div>
+                    </div>
+                    
+
+                    <!-- Kategorija 2 -->
+                    <div class="menu-item shadow-sm" onclick="toggleSubMenu(this)">
+                        <h2 style="margin-bottom: 2px;">
+                            <span class="d-flex">
+                                <i class="fas fa-wine-glass"  style="width: 35px;"></i> <!-- Ikona za vina -->
+                                <span class="w-75" id="vinaText">Vina</span>
+                                <i class="fas fa-angle-down ml-4 mt-1 arrow-icon"></i>
+                            </span>
+                        </h2>
+                        <div class="submenu">
+                            <!-- Podaci će se dinamički generisati ovde pomoću JavaScript-a -->
+                        </div>
+                    </div>
+
+                    <!-- Kategorija 3 -->
+                    <div class="menu-item shadow-sm" onclick="toggleSubMenu(this)">
+                        <h2 style="margin-bottom: 2px;">
+                            <span class="d-flex">
+                                <i class="fas fa-beer" style="width: 35px;"></i> 
+                            <span class="w-75" id="pivaText" >Piva</span>
+                            <i class="fas fa-angle-down ml-4 mt-1 arrow-icon"></i>
+                            </span>
+                           
+                        </h2>
+                        <div class="submenu">
+                            <!-- Podaci će se dinamički generisati ovde pomoću JavaScript-a -->
+                        </div>
+                    </div>
+
+                    <div class="menu-item shadow-sm" onclick="toggleSubMenu(this)">
+                        <h2 style="margin-bottom: 2px;">
+                            <span class="d-flex">
+                                <i class="fas fa-mug-hot" style="width: 35px;"></i>
+
+                                <span class="w-75" id="toplinapiciText">Topli Napici</span>
+                                <i class="fas fa-angle-down ml-4 mt-1 arrow-icon"></i>
+                            </span>
+                        </h2>
+                        <div class="submenu">
+                            <!-- Podaci će se dinamički generisati ovde pomoću JavaScript-a -->
+                        </div>
+                    </div>
+
+                
+
+
+                    <div class="menu-item shadow-sm" onclick="toggleSubMenu(this)">
+                        <h2 style="margin-bottom: 2px;">
+                            <span class="d-flex">
+                                <i class="fas fa-wine-glass-alt" style="width: 35px;"></i>
+                                <span class="w-75" id="sokoviText">Sokovi</span>
+                                <i class="fas fa-angle-down ml-4 mt-1 arrow-icon"></i>
+                            </span>
+                        </h2>
+                        <div class="submenu">
+                            <!-- Podaci će se dinamički generisati ovde pomoću JavaScript-a -->
+                        </div>
+                    </div>
+
+                    <div class="menu-item shadow-sm" onclick="toggleSubMenu(this)">
+                        <h2 style="margin-bottom: 2px;">
+                            <span class="d-flex">
+                                <i class="fas fa-wine-bottle" style="width: 35px;"></i>
+                                <span class="w-75" id="vodaText">Energetski napici i Voda</span>
+                                <i class="fas fa-angle-down ml-4 mt-1 arrow-icon"></i>
+                            </span>
+                        </h2>
+                        <div class="submenu">
+                            <!-- Podaci će se dinamički generisati ovde pomoću JavaScript-a -->
+                        </div>
+                    </div>
+
+                    <div class="menu-item shadow-sm" onclick="toggleSubMenu(this)">
+                        <h2 style="margin-bottom: 2px;">
+                            <span class="d-flex">
+                                <i class="fas fa-glass-whiskey" style="width: 35px;"></i>
+                                <span class="w-75" id="viskiText">Viski</span>
+                                <i class="fas fa-angle-down ml-4 mt-1 arrow-icon"></i>
+                            </span>
+                        </h2>
+                        <div class="submenu">
+                            <!-- Podaci će se dinamički generisati ovde pomoću JavaScript-a -->
+                        </div>
+                    </div>
+
+                    <div class="menu-item shadow-sm" onclick="toggleSubMenu(this)">
+                        <h2 style="margin-bottom: 2px;">
+                            <span class="d-flex">
+                                <i class="fas fa-cocktail" style="width: 35px;"></i>
+
+                                <span class="w-75" id="kokteliText">Kokteli</span>
+                                <i class="fas fa-angle-down ml-4 mt-1 arrow-icon"></i>
+                            </span>
+                        </h2>
+                        <div class="submenu">
+                            <!-- Podaci će se dinamički generisati ovde pomoću JavaScript-a -->
+                        </div>
+                    </div>
+
+                    <div class="menu-item shadow-sm" onclick="toggleSubMenu(this)">
+                        <h2 style="margin-bottom: 2px;">
+                            <span class="d-flex">
+                                <i class="fas fa-cookie-bite" style="width: 35px;"></i> 
+                                <span class="w-75" id="grickaliceText">Grickalice</span>
+                                <i class="fas fa-angle-down ml-4 mt-1 arrow-icon"></i>
+                            </span>
+                        </h2>
+                        <div class="submenu">
+                            <!-- Podaci će se dinamički generisati ovde pomoću JavaScript-a -->
+                        </div>
+                    </div>
+                    <!-- Dodajte ostale kategorije po potrebi -->
+                    <br>
+                    <hr>
+                    <span id="napomena"><b>Napomena:</b><i>Cene su izražene u dinarima (RSD).</i></span>
+                    <hr>
+                    <footer class="text-center mt-5">
+                        <p class="fp">&copy; 2024 Kafe Kulturica - Vaša omiljena lokacija.</p>
+                    </footer>
+                </div>
+
+               
+            </div>
+           
+        </div>
+        
+    </div>
+
+
+    
+  
+    <!-- Dodajte ostatak sadržaja vaše stranice ovde -->
+
+    <script src="script.js"></script>
+    <!-- Bootstrap JavaScript i jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Ovaj redosled linkova može rešiti problem -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+</body>
+</html>
